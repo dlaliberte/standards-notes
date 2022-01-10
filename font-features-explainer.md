@@ -1,4 +1,4 @@
-Explainer: User Preference Font Features Client Hints Headers
+Explainer: Font Features User-Agent Client-Hints Headers
 ---
 
 
@@ -75,7 +75,7 @@ There are also a handful of cases where the OS is most or all of the required si
 Font Features to Consider
 ---
 
-Answer these questions for each font feature:
+Answer these questions for each following font features we might consider adding UA-CH Headers for:
 
 * Why include any of these font features in a Client Hint?
 * What info is not already available. e.g. the os type implies such and such…
@@ -87,7 +87,7 @@ Answer these questions for each font feature:
 
 [Feature: CSS font-synthesis property](https://chromestatus.com/feature/5640605355999232)
 
-[​​Feature: Local Font Access](https://chromestatus.com/feature/6234451761692672)
+[Feature: Local Font Access](https://chromestatus.com/feature/6234451761692672)
 
 [Feature: font-variant-numeric](https://chromestatus.com/feature/5716551491649536)
 
