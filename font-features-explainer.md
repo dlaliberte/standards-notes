@@ -12,7 +12,7 @@ Dominik Röttsches (Google LLC)
 Abstract
 ---
 
-HTTP Client Hints defines an Accept-CH response header that servers can use to advertise their use of request headers for proactive content negotiation. This explainer introduces a set of user preference font features client hints headers like Sec-CH-Prefers-Font-..., which notify the server of user preferences that will meaningfully alter the requested resource, like, for example, through the currently preferred font thing. These client hints will commonly also be used as critical client hints via the Critical-CH header.
+HTTP Client Hints defines an Accept-CH response header that servers can use to advertise their use of request headers for proactive content negotiation. This explainer introduces a set of font features client hints headers like Sec-CH-Prefers-Font-..., which notify the server of font features that will meaningfully alter the requested resource, like, for example, .... These client hints will commonly also be used as critical client hints via the Critical-CH header.
 
 Status of this document
 ----
@@ -20,12 +20,12 @@ Status of this document
 Why do we care?
 ---
 
-The short answer is:
+The short answer is to address these goals:
 
 1. We want to avoid extraneous requests for potentially large font resources that are unlikely to be used.
 2. We want to avoid delay in rendering due to waiting on asynchronous requests for font resources.
 3. We want to avoid significant layout changes once font resources have been loaded.
-4. Other reasons?
+4. Other goals?
 
 More details on why these concerns are relevant:
 
@@ -84,12 +84,11 @@ There are also a handful of cases where the OS is most or all of the required si
 Font Features to Consider
 ---
 
-Answer these questions for each following font features we might consider adding UA-CH Headers for:
+For each of the following font features we might consider adding UA-CH Headers for, please answer these questions.  Generally, why include this font feature in a Client Hint?
 
-* Why include this font feature in a Client Hint?  
-  * How are we addressing the goals outlined under "Why do we care?"?
-  * Is there any benefit for the user (or the server) to support CHs for this feature?
-* What info is not already available to the server. e.g. the os type implies such and such…
+* How are we addressing the goals outlined under "Why do we care?"?
+* Is there any benefit for the user, or the client or server?
+* What info is (or is not) already available to the server. e.g. the os type implies such and such…
 
 
 [Feature: OpenType variable font support](https://chromestatus.com/feature/4708676673732608)
