@@ -20,6 +20,15 @@ Status of this document
 Why do we care?
 ---
 
+The short answer is:
+
+1. We want to avoid extraneous requests for potentially large font resources that are unlikely to be used.
+2. We want to avoid delay in rendering due to waiting on asynchronous requests for font resources.
+3. We want to avoid significant layout changes once font resources have been loaded.
+4. Other reasons?
+
+More details on why these concerns are relevant:
+
 * CSS font queries, and specifically font Queries 5 §11 User Preference font Features like prefers-color-scheme or prefers-reduced-motion, have a potentially significant impact on the amount of CSS that needs to be delivered by a page, and on the experience the user is going to have when the page loads.  The two major kinds of negative impacts involve the initial delay in rendering while waiting for required font files to be downloaded, and the subsequent redraws that might result when font changes require changes to page layout.
 
 * Web servers need to know how to generate a minimal response to client requests with the right fonts so that the client can interpret these font files correctly. The usual use case is, for example, a third-party font service provider such as Google Fonts, Adobe Fonts, H&Co or similar. The service may want to deliver different font files depending on client capabilities. So we want clients to report to the server what font file types the client understands. 
@@ -77,9 +86,11 @@ Font Features to Consider
 
 Answer these questions for each following font features we might consider adding UA-CH Headers for:
 
-* Why include any of these font features in a Client Hint?
-* What info is not already available. e.g. the os type implies such and such…
-* Is there any benefit for the user (or the server) to support CHs for these features?
+* Why include this font feature in a Client Hint?  
+  * How are we addressing the goals outlined under "Why do we care?"?
+  * Is there any benefit for the user (or the server) to support CHs for this feature?
+* What info is not already available to the server. e.g. the os type implies such and such…
+
 
 [Feature: OpenType variable font support](https://chromestatus.com/feature/4708676673732608)
 
