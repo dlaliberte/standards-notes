@@ -1,0 +1,82 @@
+<mxfile host="65bd71144e">
+    <diagram id="E7c3-pkENL-23anfbZB7" name="Page-1">
+        <mxGraphModel dx="539" dy="1009" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="8" value="&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="120" y="30" width="200" height="400" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="group" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="160" y="90" width="120" height="310" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" style="edgeStyle=none;html=1;" edge="1" parent="5" source="2" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="Identify/clarify the need for the feature" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="5">
+                    <mxGeometry width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="5" source="3" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Build support in the community for implementing" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="5">
+                    <mxGeometry y="130" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Formalize the specification and implement" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="5">
+                    <mxGeometry y="250" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="&lt;meta charset=&quot;utf-8&quot;&gt;&lt;h1 style=&quot;color: rgb(240, 240, 240); font-family: helvetica; font-style: normal; letter-spacing: normal; text-align: center; text-indent: 0px; text-transform: none; word-spacing: 0px; background-color: rgb(42, 42, 42);&quot;&gt;The Process&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="145" y="40" width="150" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="" style="group;strokeColor=#CCCCCC;" vertex="1" connectable="0" parent="1">
+                    <mxGeometry x="400" y="60" width="220" height="880" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;h2&gt;&lt;br&gt;&lt;/h2&gt;" style="rounded=0;whiteSpace=wrap;html=1;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;" vertex="1" parent="28">
+                    <mxGeometry width="220" height="880" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="&lt;h2&gt;Internal Discussion&lt;/h2&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelPosition=center;verticalLabelPosition=middle;" vertex="1" parent="28">
+                    <mxGeometry x="28.75" y="20" width="172.5" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Identify others in Google" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="28">
+                    <mxGeometry x="29" y="70" width="151" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Find initial contact:&lt;br&gt;&amp;nbsp;&lt;a href=&quot;https://docs.google.com/document/d/1XQdgi2x42nN8gBu1hGCe8K0DkTMrLSfPeWPQ48iNy5U/edit&quot;&gt;Chrome spec owners / point of contact&lt;/a&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="28">
+                    <mxGeometry x="45" y="100" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Find everyone with &lt;i&gt;strong opinions&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="28">
+                    <mxGeometry x="45" y="180" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Gather many diverse usage scenarios" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="28">
+                    <mxGeometry x="45" y="260" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="group" vertex="1" connectable="0" parent="28">
+                    <mxGeometry x="28.75" y="360" width="151" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Identify external forums" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="22">
+                    <mxGeometry width="151" height="270" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="&lt;a href=&quot;https://lists.w3.org/&quot;&gt;W3C mailing lists&lt;/a&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="22">
+                    <mxGeometry x="16" y="30" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Incubation in WICG" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="22">
+                    <mxGeometry x="16" y="110" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Where will it go after incubation?" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="22">
+                    <mxGeometry x="16" y="190" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" value="" style="group" vertex="1" connectable="0" parent="28">
+                    <mxGeometry x="30" y="650" width="151" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Identify contacts at other browser owners" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;" vertex="1" parent="23">
+                    <mxGeometry width="151" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="May be difficult to find&lt;br&gt;(hints...)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="23">
+                    <mxGeometry x="15.5" y="50" width="120" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Will make later stages much easier" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="23">
+                    <mxGeometry x="15.5" y="120" width="120" height="56.3" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
