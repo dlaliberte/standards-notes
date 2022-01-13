@@ -228,3 +228,11 @@ Mermaid JS
 Draw.io  
 
 svg.
+
+
+Does the user’s browser support a feature, versus does the user want to enable a feature?
+Browser support for a feature could be inferred from the browser version, but UA-CH hopes to replace use of UA string with a large set of headers to identify the same features.  As all browsers eventually support some feature, is the UA-CH header for that feature useful any more?  Do we have to keep supporting all UA-CH headers forever?
+
+Interop tools UI work:
+Chrome Status
+Web platform tools dashboard

@@ -7,7 +7,7 @@ Editors:
 Daniel LaLiberte (Google LLC)
 Dominik Röttsches (Google LLC)
 
-(Need to involve the Google Fonts folks Rod Sheeter and Evan Adams - and solicit feedback from CSS working group folks as well (fantasai, Chris Lilley, Jonathan Kew, Myles Maxfield, Dominik). )
+(Need to involve the Google Fonts folks Rod Sheeter, Evan Adams, Yoav Weiss - and solicit feedback from CSS working group folks as well (fantasai, Chris Lilley, Jonathan Kew, Myles Maxfield, Dominik). )
 
 Abstract
 ---
