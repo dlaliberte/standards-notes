@@ -1,4 +1,4 @@
-Explainer: Font Features User-Agent Client-Hints Headers
+Explainer: Font Features Client-Hints Headers
 ---
 
 
@@ -12,7 +12,7 @@ Dominik Röttsches (Google LLC)
 Abstract
 ---
 
-HTTP Client Hints defines an Accept-CH response header that servers can use to advertise their use of request headers for proactive content negotiation. This explainer introduces a set of font features client hints headers like Sec-CH-Prefers-Font-..., which notify the server of font features that will meaningfully alter the requested resource, like, for example, .... These client hints will commonly also be used as critical client hints via the Critical-CH header.
+HTTP Client Hints defines an Accept-CH response header that servers can use to advertise their use of request headers for proactive content negotiation. This explainer introduces a set of font features client hints headers like Sec-CH-Prefers-Font-..., which notify the server of font features that will meaningfully alter the requested resource, like, for example, .... These client hints may be used as critical client hints via the Critical-CH header.
 
 Status of this document
 ----
@@ -23,21 +23,18 @@ Why do we care?
 The short answer is to address these goals:
 
 1. We want to avoid extraneous requests for potentially large font resources that are unlikely to be used.
-2. We want to avoid delay in rendering due to waiting on asynchronous requests for font resources.
+2. We want to avoid initial delay in rendering due to waiting on asynchronous requests for font resources.
 3. We want to avoid significant layout changes once font resources have been loaded.
 4. Other goals?
 
 More details on why these concerns are relevant:
 
-* CSS font queries, and specifically font Queries 5 §11 User Preference font Features like prefers-color-scheme or prefers-reduced-motion, have a potentially significant impact on the amount of CSS that needs to be delivered by a page, and on the experience the user is going to have when the page loads.  The two major kinds of negative impacts involve the initial delay in rendering while waiting for required font files to be downloaded, and the subsequent redraws that might result when font changes require changes to page layout.
-
 * Web servers need to know how to generate a minimal response to client requests with the right fonts so that the client can interpret these font files correctly. The usual use case is, for example, a third-party font service provider such as Google Fonts, Adobe Fonts, H&Co or similar. The service may want to deliver different font files depending on client capabilities. So we want clients to report to the server what font file types the client understands. 
 
-* To support variable fonts, color vector fonts, responsive images, and other third-party content which requires client information lost by the user agent reduction implementation we need a way to extend client hints. For example: variable fonts allow significantly less font information to be transferred without loss of functionality, but only works on specific operating systems.
+* To support variable fonts, color vector fonts, and other third-party content which requires client information lost by the user agent reduction implementation we need a way to extend client hints. For example: variable fonts allow significantly less font information to be transferred without loss of functionality, but only works on specific operating systems.
 
 * Example: A client does support COLRv1 color fonts, but does not support OT-SVG font files, so the server should send CSS that references COLRv1 files, and not OT-SVG files.
 
-* Example: High-traffic sites like search engines or news sites that wish to honor user preference font features like prefers-color-scheme and that inline CSS for performance reasons need to know about the preferred color scheme (or other user preference font features respectively) ideally at request time, so that the initial HTML payload already has the right CSS inlined. Additionally, and specifically for prefers-color-scheme, sites by all means want to avoid a flash of inaccurate color theme. 
 
 This explainer introduces a set of [CLIENT-HINTS] headers around user preference font features as defined by [...].
 
