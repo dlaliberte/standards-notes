@@ -236,3 +236,15 @@ Browser support for a feature could be inferred from the browser version, but UA
 Interop tools UI work:
 Chrome Status
 Web platform tools dashboard
+
+App Engine
+
+ChromeStatus
+jason robins.  
+evan adams - 
+
+devrel paul kinlan?  Dominic  - who would help in devrel.
+
+adobe font serving
+Font Foundaries 
+
