@@ -248,3 +248,25 @@ devrel paul kinlan?  Dominic  - who would help in devrel.
 adobe font serving
 Font Foundaries 
 
+---
+
+Possible Chrome Status easy bugs:
+
+[Generated Intent to Prototype emails are missing fields because I was never asked for them · Issue \#1691 · GoogleChrome/chromium\-dashboard](https://github.com/GoogleChrome/chromium-dashboard/issues/1691)
+  * Requires figuring out how to add to what is asked for I2P.  
+
+[Tool does not match instructions for 'Web\-developer\-facing change to existing code \(PSA\)' · Issue \#1686 · GoogleChrome/chromium\-dashboard](https://github.com/GoogleChrome/chromium-dashboard/issues/1686)
+  * Potentially several complications.
+  * Relevant to folding more docs into Chrome Status.
+
+[Set up javascript unit tests · Issue \#1678 · GoogleChrome/chromium\-dashboard](https://github.com/GoogleChrome/chromium-dashboard/issues/1678)
+  * Seems easy enough for me, though there are several things I don't know about yet.
+  * Relevant for testing potential client-side enhancements.
+
+[Implement unit tests for django templates · Issue \#1677 · GoogleChrome/chromium\-dashboard](https://github.com/GoogleChrome/chromium-dashboard/issues/1677)
+  * Important, especially if I am going to modify django templates.
+
+[Missing feedback when setting an item to approved · Issue \#1642 · GoogleChrome/chromium\-dashboard](https://github.com/GoogleChrome/chromium-dashboard/issues/1642)
+  * Seems simple and helpful.  Could be more complex depending on whether user action causes expected change visible in the page.
+
+
