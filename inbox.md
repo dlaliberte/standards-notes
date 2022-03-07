@@ -270,3 +270,196 @@ Possible Chrome Status easy bugs:
   * Seems simple and helpful.  Could be more complex depending on whether user action causes expected change visible in the page.
 
 
+FraudCG
+
+Sam Jackson presentation
+
+* Better privacy enables easier fraud.
+* Few fraud cases to learn from. 
+* Privacy budget as source of volatility.
+  * What happens when site goes over budget?
+* In some cases, digital profiling is a regulatory requirement.
+* Exemptions for parties involved in fraud detection.  High risk contexts.
+
+Abuse of privacy is reason for requirements to improvement privacy.
+And sometimes unintended consequence of reducing fraud is reducing privacy.  Users giving even more info to identify themselves.
+
+---  
+
+Summary/Survey of State of Potassium
+
+* How do Origin Trials fit in?  I2E
+  * e.g. Need explainer?
+
+Ready for Trial - dev trials.
+
+TPM for potassium
+
+Why Facilitation is important
+
+Lack of facilitation can result in chaos, lack of direction, wasted time.
+Stepping into facilitators shoes gives another perspective.
+
+
+Potassium
+
+ * 2022-02-15 13:43 [Potassium launch process guide - Docs](http://doc/1GVscXkb6ZP7Y7GlZ7Q6PmnRLpKJfCm_35RZ1VOrRURg#heading=h.5nvkci3rbj3a)
+ * 2022-02-15 13:44 [Summary \[CONFIDENTIAL\] Canonical Potassium Project List - Sheets](http://sheets/1KZH_oR0uYoGnootI6ilVvx-jbJKGUjrg3Mrah0l3XyU#gid=983001617)
+
+Chrome Status
+  * https://github.com/GoogleChrome/chromium-dashboard/issues/1270
+
+
+Font Features
+
+Conversation with Mike Taylor a year ago.  
+
+variant fonts,
+colors
+font rendering engines..  Overlap bugs
+unicode range
+
+identify capabilities.
+
+Try to avoid multiple requests, but...
+two stage request .. css to specify fonts.
+Single-page web sites, with multiple ajax requests for more content and markup.
+
+ 1. Split up fonts by unicode range. subsetting
+ 2. variable fonts
+ 3. woff, woff2. Brotli 
+ 4. Incremental transfer.  Progressive Font Enancement.
+
+Garret Rieger.
+
+blind caching .  Martin Thompson 
+
+Diagram generation for standards process navigation.
+
+Chat with Dominik Röttsches
+
+unicode range already well established.
+what expecatations 
+strictly within range?
+
+tools for 3rd party font services 
+what css can be shipped?  e.g. subsetting.
+
+where is woff2 (brotli based) etc an issue?
+Chrome? 
+major version, platform in UA.  Is that enough?
+not tied to platform.
+
+Incremental transfer
+1. apple way, range requests
+2. chrome way.  font patch
+
+Color fonts
+ * emoji
+ * safari supports open type svg fonts.
+ * chrome color v1..
+
+Importance
+Google fonts, what they need?
+
+migration path for css.  
+
+adobe font service.  
+
+Sam Goto.  Federated Credentials 
+Intent to Experiment.
+
+
+Current playbooks seem to ve lacking.
+
+Potassium
+Rick Byers.
+
+Spreadsheet form of status is clunky but flexible.
+Can we add similar data to Chrome Status?  What features do we need to add?  E.g. tags, categories, groupings.  More status variations?
+
+Font services:
+font distribution companies.
+apple fonts?
+linotype
+
+font-like media
+CDN 
+akamai, cloudflare.
+
+Yoav  - web performance.
+Mike West - privacy budget
+
+New OS ... can we safely use this new feature.
+
+Yoav
+====
+
+Requests from Google Fonts?  (Not that I know of.)
+
+More reliable to have more direct signals of features support.
+Incremental font, 
+* streaming fonts
+* content negotiation needed.
+
+Gerrett Rigger - google fonts, chair of wg on incremental transfer
+
+"It is better to enable things that are not yet possible than to just improve things that are already possible."
+
+Which fonts are served, and which css is served?
+
+COLRv1 - which font formats are supported, unique.
+* enable font providers to minimize the css they send, optimal experience.
+  * But is size of css an issue?  More an issue for round-trip latency.
+* vector fonts plus others. 
+* import css file from google fonts.
+
+variable fonts similar to colors.
+coalesce into a single hint.
+
+main problem: there are always trandoffs.
+
+Idea: can client get font dimensions early enough to safely approximate how to render with default or fall-back font?
+css features to provide font sizes.  size adjust feature.
+Can font file dimension data be sent first?   ask  Dominik about size of dimension data.
+
+caching font data close to clients.
+pre-caching reduces fingering.
+
+
+Which standards bodies would handle this.
+
+Extra trips required.
+Need to know first request.  
+low entropy hints possible?
+
+browser major version is low entropy.
+On mac, default fants based on os.
+
+Variable font support, tied to OS version.
+if we dont know, don't send.
+
+Color fonts are similar.
+
+Adding hints should not take too long..
+fast track registry of client hints?
+
+Suggest client hints needed along with css for fonts. 
+Can we add attribute to link tag.
+
+capability set generated from UA.
+
+variable fonts are used heavily.
+need to distinguish for OSx.
+
+Freezing UA means exactly what?
+could be fine for now, depending.
+
+Dont want to slow deployment.  
+
+Adobe - 
+Monotype
+
+Which unicode range do you want?
+
+
