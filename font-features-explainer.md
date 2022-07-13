@@ -4,8 +4,8 @@ Explainer: Font Features Client-Hints Headers
 
 Editors:
 ---
-Daniel LaLiberte (Google LLC)
-Dominik Röttsches (Google LLC)
+* Daniel LaLiberte (Google LLC)
+* Dominik Röttsches (Google LLC)
 
 (Need to involve the Google Fonts folks Rod Sheeter, Evan Adams, and Yoav Weiss. Also involve other font services.  Also solicit feedback from CSS working group folks as well (fantasai, Chris Lilley, Jonathan Kew, Myles Maxfield, Dominik). )
 
@@ -127,6 +127,9 @@ Usage Example
 ---
 
 CH-COLRv1 - indicates whether the client supports Color Gradient V1 Fonts.
+
+Accept-CH: COLRv1, VariableFonts
+
 
 FAQ
 ---
