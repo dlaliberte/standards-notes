@@ -28,3 +28,11 @@ Some properties have special meaning for Foam:
 - the `title` property will assign the name to the note that you will see in the graph, regardless of the filename or the first heading (also see how to [[write-notes-in-foam]])
 - the `type` property can be used to style notes differently in the graph (also see [[graph-visualization]])
 - the `tags` property can be used to add tags to a note (see [[tags-and-tag-explorer]])
+
+
+
+examples
+turbo tax model. 
+google products.
+mobile a11y issues.
+paper

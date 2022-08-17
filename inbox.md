@@ -398,9 +398,11 @@ Yoav
 Requests from Google Fonts?  (Not that I know of.)
 
 More reliable to have more direct signals of features support.
-Incremental font, 
-* streaming fonts
-* content negotiation needed.
+
+Incremental fonts:
+
+  - streaming fonts
+  - content negotiation needed.
 
 Gerrett Rigger - google fonts, chair of wg on incremental transfer
 
@@ -409,10 +411,12 @@ Gerrett Rigger - google fonts, chair of wg on incremental transfer
 Which fonts are served, and which css is served?
 
 COLRv1 - which font formats are supported, unique.
-* enable font providers to minimize the css they send, optimal experience.
-  * But is size of css an issue?  More an issue for round-trip latency.
-* vector fonts plus others. 
-* import css file from google fonts.
+
+- enable font providers to minimize the css they send, optimal experience.
+  - But is size of css an issue?  More an issue for round-trip latency.
+
+- vector fonts plus others. 
+- import css file from google fonts.
 
 variable fonts similar to colors.
 coalesce into a single hint.
@@ -434,7 +438,7 @@ Need to know first request.
 low entropy hints possible?
 
 browser major version is low entropy.
-On mac, default fants based on os.
+On mac, default fonts based on os.
 
 Variable font support, tied to OS version.
 if we dont know, don't send.
@@ -462,4 +466,119 @@ Monotype
 
 Which unicode range do you want?
 
+
+
+Firefox has not liked client hints.  
+variable fonts.  
+Has Evan talked with Firefox?  Jeffrey can help.
+
+font features categories. 
+Css negotiation.  font face rule.  src says .. if woff 
+Talk with Tab about extending font face conditional rules.
+Condition on font feature possibily.   Ask Evan if this works.
+Tab.  Firefox may need work.
+
+
+
+Potassium Standards Sync
+
+PRD is not spec.  Higher than design doc, more about requirements, but how is something implemented in chrome.
+public spec, more detailed design specification.
+
+spec + IP protections
+CR from working group, 
+
+Controvesial but still becomes standard?
+web midi - chrome speced and shipped, others followed. 
+de facto vs de ju.  
+
+Trying to involve counity to build consensus.
+
+Next Steps
+1. Write a spec for each API before it ships.
+2. Decide which path toward standard is appropriate.  
+
+Anything that uses Blink I2S process needs standardization.
+
+Josh Karlin is one who is participating in the standards process.
+
+Using Chrome Status
+===================
+
+Some thoughts and observations while using Chrome Status.
+
+ - On "Edit feature" page
+   - "Edit all fields" link is way at the top.  
+   - To edit one stage, click "Preview" link? 
+   - Would be more convenient to edit in the context of this page.
+     - Expand the stage row in-place, or maybe just expand one progress item, since user may only have one new thing to add.
+ - Initial tooltip about, e.g. Progress column, should be available later.
+ - Terminoloy on "Edit feature" page is different from what is found when editing fields.
+
+
+Harald Alv.
+Instead of writing extensions to specs, we write addons.  What's the difference?
+Difficult either but it should be easier.
+W3C process is an obstacle
+
+Importance of Spec maintenance. 
+More important to have specifications than recs.
+Others outside of Google often expected to push to rec.
+
+Incubation.
+Need to agree on what it means.
+
+Encourage adoption, but not require adoption before shipping.
+But require an inquiry.
+
+Chrome status
+Summary of what is worth paying attention to.
+
+
+Potassium Standards Status
+
+Projects that are shipping - should they be listed?
+ * 2022-04-19 11:05 [How We’re Protecting Your Online Privacy - The Privacy Sandbox](https://privacysandbox.com/intl/en_us/open-web/#the-privacy-sandbox-timeline)
+ * Cache partitioning is shipping, but not listed as project: https://github.com/shivanigithub/http-cache-partitioning
+ * Network State Partitioning - "Landed in Fetch spec"
+  * 2022-04-19 11:39 [Fetch Standard](https://fetch.spec.whatwg.org/#connections)
+
+
+Things to remove from Chrome Status
+
+AppDrawer  
+ paper ripple..
+
+ iron icon.. svg?
+
+Levels of help
+
+ feature type list
+ process for stages
+ for each stage, fields short description, extended detailed context prerequisites .. followup..
+ field editing constraints and error message..
+
+
+----
+
+Chrome status
+Web Status
+Microsoft Edge? Just "conceptual", "the web we want"
+Other chromium based. Opera brave, Amazon silk. Samsung.
+Firefox status.
+Who else?
+
+Other extensions:
+Web compass
+Approvals **
+More release notes
+
+filter sidebar.
+
+Google feedback.
+Suggested edit.
+Integrate with GitHub?
+
+
+Google fonts..??
 
