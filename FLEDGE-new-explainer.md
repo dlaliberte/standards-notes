@@ -22,6 +22,7 @@ We plan to hold regular meetings under the auspices of the WICG to go through th
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Goals [or Motivating Use Cases, or Scenarios]](#goals-or-motivating-use-cases-or-scenarios)
+    - [Stakeholders and entities](#stakeholders-and-entities)
   - [Non-goals](#non-goals)
   - [Previous Proposals](#previous-proposals)
   - [[API 1]](#api-1)
@@ -51,6 +52,30 @@ FLEDGE is a [Privacy Sandbox](https://developer.chrome.com/docs/privacy-sandbox/
 ## Goals [or Motivating Use Cases, or Scenarios]
 
 The key idea is that advertisers and publishers will be able to target audiences on the basis of interest groups. Another noteworthy point in this proposal is that the auction-related decisions will take place in the browser as opposed to ad servers, publisher servers, or other third parties.
+
+### Stakeholders and entities
+
+There are several parties or stakeholders to consider in this context with somewhat competing goals between them:
+ * Web user - This is the person who is viewing and interacting with web pages.
+   * In addition to viewing and interacting with the web pages, the goals of the web user may include privacy while seeing ads relevant to their interests, either contextually relevant for the web page or personalized based on prior history.
+ * Advertisers
+ * Publishers
+ * Ad tech agencies
+ * DSPs
+ * SSPs
+ * "buyer" is a potential buyer of "ad space", not ads.
+ * "seller" is a seller of "ad space", not ads.
+ * "Ad Inventory" is actually "Ad Space Inventory"
+ * "interest group"
+  * Collection of "people" who probably share an interest in the same thing.
+  * A collection of ads, updated daily, that might e relevant to these people.
+  * "Stored by the browser" - but maintained by some server.
+ * "interest group owner"
+ * "auction"
+ * "bid"
+
+
+
 
 ## Non-goals
 
