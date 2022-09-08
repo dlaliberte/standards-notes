@@ -86,33 +86,34 @@ There are also a handful of cases where the OS is most or all of the required si
 * Definition of fallback fonts to reduce CLS (Cumulative Layout Shift) impact of fonts.  We need to define how to adjust system fonts to have similar metrics to webfonts. System fonts vary from version to version so knowing what platform it is, but not which version, is a problem.
 * The need for removal of overlap in outlines due to bad outline processing.  This is only an issue on macOS <= X(??).
 
-Font Features to Consider
+Use Cases
+---
+A typical flow between the client and multiple servers might look like this:
+
+1. The client first requests a resource. 
+2. The server responds with that resource that also references other resources (e.g. css files), and includes the Accept-CH: VariableFonts header, as a request to the client. 
+3. The client then could request css files from the same server, and in this "response" it includes the VariableFonts: true header.  
+4. Then the server responds with a css file that depends on using variable fonts.  
+5. Then the client requests the variable it doesn't yet have from Google Fonts.
+6. Google Fonts returns the requested variable fonts.
+
+Usage Example
 ---
 
-There are many font features that we might consider adding UA-CH Headers for, and for each, we need to consider why we might want to add support for a Client Hint regarding the feature.
+Document server returns a response to a request for a document with a request of client-hints regarding COLORv1 and VariableFonts:
 
-* How are we addressing the goals outlined under "Why do we care?"?
-* Is there any benefit for the user, or the client, or document server or font server?
-* What info is (or is not) already available to the document server or font server. e.g. the os type implies such and such…
+```Accept-CH: COLRv1, VariableFonts```
 
-Here is a list of font-related features that may be relevant when considering whether a client hint will be beneficial or necessary.
+The client can respond with headers for either or both of these client hints along with details about which fonts are available to use (supported vs previously
+downloaded?).
 
-* [Feature: OpenType variable font support](https://chromestatus.com/feature/4708676673732608)
-* [Feature: CSS font-feature-setings](https://chromestatus.com/feature/5831574356492288) Also: https://caniuse.com/font-feature
-* [Feature: CSS font-synthesis property](https://chromestatus.com/feature/5640605355999232)
-* [Feature: Local Font Access](https://chromestatus.com/feature/6234451761692672)
-* [Feature: font-variant-numeric](https://chromestatus.com/feature/5716551491649536)
-* [Feature: font-variant-caps](https://chromestatus.com/feature/5764191470223360)
-* [Feature: size-adjust descriptor for @font-face](https://chromestatus.com/feature/5662073285509120)
-* [Feature: COLRv1 Color Gradient Vector Fonts](https://chromestatus.com/feature/5638148514119680)
-* [Feature: COLR/CPAL font support](https://chromestatus.com/feature/5897235770376192)
-* [Feature: @font-face descriptors to override font metrics](https://chromestatus.com/feature/5651198621253632)
-* [Feature: font-optical-sizing](https://chromestatus.com/feature/5685958032752640)
-* [Feature: Intervention: WebFonts use adaptive timeouts to take fallback fonts](https://chromestatus.com/feature/5636954674692096)
-* [Feature: Markup based Client Hints delegation for third-party content](https://chromestatus.com/feature/5684289032159232)
-* [Feature: Supports keyword format in @font-face src descriptor](https://chromestatus.com/features/6214741698543616)
+```
+COLORv1: details
+VariableFonts: details
+```
 
-From this list, we propose to consider first the variable fonts (specifically OpenType variable fonts) and color fonts (COLORv1).
+Since different fonts may be associated with use of both color fonts and variable fonts, the Vary header should be included with responses to requests for font resources
+for color and variable fonts.
 
 Client Hint Names
 ---
