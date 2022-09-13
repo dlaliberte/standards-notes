@@ -24,7 +24,7 @@ Initial draft.
 Why do we care?
 ---
 
-The short answer that client hints regarding font features are worth considering is to address these goals:
+Client hints regarding font features are worth considering to address the following goals:
 
 1. We want to avoid extraneous requests for potentially large font resources that are unlikely to be used.
 2. We want to avoid the initial delay in rendering due to waiting for the response to asynchronous requests for font resources.
@@ -43,22 +43,8 @@ More details on why these concerns are relevant:
 
 This explainer introduces a set of [CLIENT-HINTS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Client_hints) headers around client support for font features.
 
-Relationship with CSS Font Queries
----
+When a document server responds to a request for a resource that could contain uses of color fonts or variable fonts, even if these font features are supported by the client, since font resources for color fonts and variable fonts might need to be asynchronously requested of font services and loaded into the client, there would subsequently be some delay before they have been requested and the font resources returned in responses become available.  So the document server needs to know as soon as possible when responding to a request for a document whether the client supports font features that it might rely on.
 
-If possible and appropriate, we should make the font feature client hints consistent with what's already specified in the [CSS Fonts Specs (level 4)](https://drafts.csswg.org/css-fonts-4/#font-face-src-parsing): 
-
-The arguments to the format() and tech() functions described in Parsing the 'src' descriptor include a set of capabilities that are useful for making the appropriate decisions on the server side:
-
-```
-<url> [ format(<font-format>)]? [ tech( <font-tech>#)]? | local(<font-face-name>)
-<font-format>= [<string> | collection | embedded-opentype | opentype
-| svg | truetype | woff | woff2 ]
-<font-tech>= [<font-feature-tech> | <color-font-tech>
-| variations | palettes | incremental ]
-<font-feature-tech>= [feature-opentype | feature-aat | feature-graphite]
-<color-font-tech>= [color-COLRv0 | color-COLRv1 | color-SVG | color-sbix | color-CBDT ]
-```
 
 Relationship with other Features and UA-CHs
 ---
@@ -84,7 +70,11 @@ There are also a handful of cases where the OS is most or all of the required si
 
 * The need for hinted fonts; most of the signal is just the OS so the low entropy hints are largely sufficient. For example, Windows always gets hinted fonts whereas Android never does. If a new version of an OS suddenly changes to need or not need hints, the low entropy signal would no longer suffice.
 * Definition of fallback fonts to reduce CLS (Cumulative Layout Shift) impact of fonts.  We need to define how to adjust system fonts to have similar metrics to webfonts. System fonts vary from version to version so knowing what platform it is, but not which version, is a problem.
-* The need for removal of overlap in outlines due to bad outline processing.  This is only an issue on macOS <= X(??).
+* The need for removal of overlap in outlines due to bad outline processing. This is only an issue on versions of macOS as follows:
+  * 10.11 and below needs overlaps removed
+  * 10.12 needs the overlap bit set
+  * 10.13 and above supports variations fonts
+
 
 Use Cases
 ---
@@ -117,14 +107,19 @@ for color and variable fonts.
 
 Client Hint Names
 ---
-COLRv1 - Color Gradient V1 Fonts.
-VariableFonts - Variable Fonts.
+* COLRv1: support for rendering colour font glyphs specified in a COLRv1 table. Specification for COLRv1 and COLRv0 is found here: https://docs.microsoft.com/en-us/typography/opentype/spec/colr
+* VariableFonts: support for rendering variable fonts. Specification is found here: https://docs.microsoft.com/en-us/typography/opentype/spec/otvaroverview
+
+Future client hints to consider:
+* CBDT/CBLC
+* SBIX
+* COLRv0
+* OT-SVG
+
 
 Usage Example
 ---
 
-When a document server responds to a request for a resource that may contain uses of color fonts or variable fonts,
-since these font features might not be supported by the client, and since font resources for color fonts and variable fonts might need to be asynchronously requested of font services and loaded into the client, there would subsequently be some delay before they have been requested and the font resources returned in responses become available.
 
 Document server returns a response with requested hints for COLORv1 and VariableFonts
 
@@ -151,6 +146,30 @@ FAQ
 
 Alternatives Considered
 ---
+CSS Font Queries
+---
+
+If possible and appropriate, we should make the font feature client hints consistent with what's already specified in the [CSS Fonts Specs (level 4)](https://drafts.csswg.org/css-fonts-4/#font-face-src-parsing): 
+
+The arguments to the format() and tech() functions described in Parsing the 'src' descriptor include a set of capabilities that are useful for making the appropriate decisions on the server side:
+
+```
+<url> [ format(<font-format>)]? [ tech( <font-tech>#)]? | local(<font-face-name>)
+<font-format>= [<string> | collection | embedded-opentype | opentype
+| svg | truetype | woff | woff2 ]
+<font-tech>= [<font-feature-tech> | <color-font-tech>
+| variations | palettes | incremental ]
+<font-feature-tech>= [feature-opentype | feature-aat | feature-graphite]
+<color-font-tech>= [color-COLRv0 | color-COLRv1 | color-SVG | color-sbix | color-CBDT ]
+```
+
+While the use of src/tech() is ideal for small use-cases (when you just have a couple versions of a font to
+potentially use, like "basic" and "good"), in the case of services like Google Fonts, there could be dozens of variants, 
+because they can support many features that might all be differently supported by each client based on OS config, so it becomes a
+combinatorial explosion.  Let's consider 2-position values for color, variations, incremental transfer, 
+the Mac Overlap bug, 4 file formats, and 3 codecs.  That's a total of 192 combinations and we definitely don't want to list 192 src 
+entries for each combination.
+
 
 Acknowledgements
 ---
