@@ -9,6 +9,7 @@ Intro to Bikeshed
   - [`.pr-preview.json`](#pr-previewjson)
   - [`.github/workflows/build.yml`](#githubworkflowsbuildyml)
 - [Development cycle](#development-cycle)
+  - [IDL links](#idl-links)
 
 ## Initial setup
 
@@ -126,14 +127,27 @@ jobs:
 
 ## Development cycle
 
-* Change the spec.bs file.
+A very brittle process, since there are no details about errors or warnings.
+
+* Make changes to the spec.bs file. 
+  *  Micro changes at first, until you are confident they will work.
 * Run in local terminal: 
 ```
 curl https://api.csswg.org/bikeshed/ \
 	                       --output spec.html \
 	                       --write-out "%{http_code}" \
 	                       --header "Accept: text/plain, text/html" \
-	                       -F die-on=warning \
 	                       -F file=@spec.bs`
 ```
+* Notice the size of the result.  If it failed, it will just be a cryptic error message.
 * Preview the spec.html file.
+
+
+
+### IDL links
+
+Need reference of all relevant types and how to link to them.
+
+numbers, single vs double, integer vs float.
+
+xmp class="idl" deprecated/obsolete element used to magically highlight and link!  Undocumented?
