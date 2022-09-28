@@ -582,3 +582,7 @@ Integrate with GitHub?
 
 Google fonts..??
 
+Regarding font features client hings:
+  Need to involve the Google Fonts folks Rod Sheeter, Evan Adams, and Yoav Weiss. Also involve other font services. 
+  Also solicit feedback from CSS working group folks as well (fantasai, Chris Lilley, Jonathan Kew, Myles Maxfield, 
+  Dominik).
