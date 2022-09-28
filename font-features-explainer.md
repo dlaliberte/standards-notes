@@ -7,8 +7,6 @@ Editors:
 * Daniel LaLiberte (Google LLC)
 * Dominik Röttsches (Google LLC)
 
-(Need to involve the Google Fonts folks Rod Sheeter, Evan Adams, and Yoav Weiss. Also involve other font services.  Also solicit feedback from CSS working group folks as well (fantasai, Chris Lilley, Jonathan Kew, Myles Maxfield, Dominik). )
-
 Abstract
 ---
 
@@ -86,6 +84,8 @@ A typical flow between the client and multiple servers might look like this:
 4. Then the server responds with a css file that depends on using variable fonts.  
 5. Then the client requests the variable it doesn't yet have from Google Fonts.
 6. Google Fonts returns the requested variable fonts.
+
+Bugs discovered in browsers regarding font features (or any other browser features, for that matter) may need rapid response to identify the bugs in client hints so that services such as Google Fonts can respond accordingly. E.g. the Mac outline overlap bug needs to be identified when it applies.  It ought to be simpler to add a client hint to the next release of a browser that identifies the relevant bugs than to actually fix or workaround the bugs.
 
 Usage Example
 ---
@@ -188,12 +188,8 @@ https://drafts.csswg.org/css-fonts/
 
 [Can I Use: 50 ‘font’ results](https://caniuse.com/?search=font)
 
-From Dominik R.:
----
-
 Additional useful reading might be:
 
 * [Review Request: CSS Fonts src: descriptor syntax for client side font selection](https://github.com/w3ctag/design-reviews/issues/666)
 
 * [css-fonts-4][css-nesting] Nesting of @supports inside @font-face and font technology feature queries  https://github.com/w3c/csswg-drafts/issues/6520 although these are somewhat lengthy standardization discussions, and they discuss what kind of client side feature detection should be exposed to the web. But similar decisions need to be taken server side in response to UA-CH.
-
