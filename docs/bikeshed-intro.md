@@ -17,7 +17,7 @@ Intro to Writing Specs with Bikeshed
 (mostly tactical "how to start a new spec")
 ### Using GitHub.
 
-Initially create an empty or mostly empty spec.bs file, and associated files to automatically process updates to test the spec file and regenerate html.
+Initially create an empty or mostly empty spec.bs file (e.g. [Minimal template](http://go/gh/WICG/starter-kit/blob/main/templates/index.bs)_), and associated files to automatically process updates to test the spec file and regenerate html.
 
 See [Spec Prod Documentation](https://w3c.github.io/spec-prod/)
 
@@ -36,6 +36,8 @@ After that, then you can add infra specs that reference the WebIDL specs.
 
 Different types of APIs could have specs that follow different patterns.  Here is a list of several:
 
+* [Sections template](http://go/gh/WICG/starter-kit/tree/main/templates)
+* [Minimal template](http://go/gh/WICG/starter-kit/blob/main/templates/index.bs)
 ...
 
 ## Sample Full Specifications following Best Practices
