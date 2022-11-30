@@ -1,7 +1,7 @@
-Intro to Writing Specs with Bikeshed
+Introduction to Writing Specifications with Bikeshed
 -----------------
 
-- [Intro to Writing Specs with Bikeshed](#intro-to-writing-specs-with-bikeshed)
+- [Introduction to Writing Specifications with Bikeshed](#introduction-to-writing-specifications-with-bikeshed)
 - [Initial setup](#initial-setup)
   - [Using GitHub.](#using-github)
 - [Spec writing overviews](#spec-writing-overviews)
