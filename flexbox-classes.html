@@ -1,0 +1,542 @@
+<html>
+
+<head>
+
+    <style>
+        /* Flexbox helpers */
+        .hbox,
+        .vbox {
+            display: flex;
+        }
+
+        .hbox {
+            flex-direction: row;
+        }
+
+        .vbox {
+            flex-direction: column;
+        }
+
+        .hbox.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .vbox.reverse {
+            flex-direction: column-reverse;
+        }
+
+        .hbox.inline,
+        .vbox.inline {
+            display: inline-flex;
+        }
+
+        .hbox.wrap,
+        .vbox.wrap {
+            flex-wrap: wrap;
+        }
+
+        .hbox.wrap-reverse,
+        .vbox.wrap-reverse {
+            flex-wrap: wrap-reverse;
+        }
+
+        /* Flexbox alignment */
+
+        /* Alignment in main axis. */
+        .hbox.halign-items-start,
+        .vbox.valign-items-start {
+            justify-content: flex-start;
+        }
+
+        .hbox.valign-items-start,
+        .vbox.halign-items-start {
+            align-content: flex-start;
+        }
+
+        .hbox.halign-items-center,
+        .vbox.valign-items-center {
+            justify-content: center;
+        }
+
+        .hbox.halign-items-end,
+        .vbox.valign-items-end {
+            justify-content: flex-end;
+        }
+
+        /* Alignment in cross axis. */
+        .hbox.valign-items-start,
+        .vbox.halign-items-start {
+            align-items: flex-start;
+        }
+
+        .hbox.valign-items-center,
+        .vbox.halign-items-center {
+            align-items: center;
+        }
+
+        .hbox.valign-items-end,
+        .vbox.halign-items-end {
+            align-items: flex-end;
+        }
+
+        /* Space distribution */
+
+        .hbox.halign-items-space-around,
+        .vbox.valign-items-space-around {
+            justify-content: space-around;
+        }
+
+        .hbox.valign-items-space-around,
+        .vbox.halign-items-space-around {
+            align-content: space-around;
+        }
+
+        /* obsolete - use .halign-space-between */
+        .hbox.space-between {
+            justify-content: space-between;
+        }
+
+        .hbox.halign-items-space-between,
+        .vbox.valign-items-space-between {
+            justify-content: space-between;
+        }
+
+        .hbox.valign-items-space-between,
+        .vbox.halign-items-space-between {
+            align-content: space-between;
+        }
+
+        .hbox.halign-items-space-evenly,
+        .vbox.valign-items-space-evenly {
+            justify-content: space-evenly;
+        }
+
+        .hbox.valign-items-space-evenly,
+        .vbox.halign-items-space-evenly {
+            align-content: space-evenly;
+        }
+
+        /* Self/item alignment. */
+        .hbox>.valign-start,
+        .vbox>.halign-start {
+            align-self: flex-start;
+        }
+
+        .hbox>.valign-center,
+        .vbox>.halign-center {
+            align-self: center;
+        }
+
+        .hbox>.valign-end,
+        .vbox>.halign-end {
+            align-self: flex-end;
+        }
+
+        /* Strech "alignment" */
+        .hbox.valign-items-stretch,
+        .vbox.halign-items-stretch {
+            align-items: baseline;
+            /* ??? */
+        }
+
+        /* obsolete - use .halign-stretch */
+        .hbox>.hgrow {
+            flex-grow: 1;
+        }
+
+        .hbox>.halign-stretch {
+            flex-grow: 1;
+        }
+
+        .hbox>.valign-stretch {
+            align-self: stretch;
+        }
+
+        .vbox>.halign-stretch {
+            align-self: stretch;
+        }
+
+        .vbox>.valign-stretch {
+            flex-grow: 1;
+        }
+
+        .hbox.halign-items-stretch>*,
+        .vbox.valign-items-stretch>* {
+            flex-grow: 1;
+        }
+
+        /* Non-flexbox positioning helper styles */
+
+        .hbox>.halign-stretch-1,
+        .vbox>.valign-stretch-1 {
+            flex-basis: 0.000000001px;
+            /* ??? */
+        }
+
+        .hbox>.halign-stretch-2,
+        .vbox>.valign-stretch-2 {
+            flex-grow: 2;
+        }
+
+        .hbox>.halign-stretch-3,
+        .vbox>.valign-stretch-3 {
+            flex-grow: 3;
+        }
+    </style>
+
+
+    <style>
+        .general {
+            width: 100%;
+        }
+
+        .general>div {
+            background-color: #ccc;
+            padding: 4px;
+            margin: 12px;
+        }
+
+
+
+        body {
+            font-family: 'Roboto', 'Noto', sans-serif;
+            font-size: 14px;
+            margin: 0;
+            padding: 24px;
+            background-color: #fafafa;
+        }
+
+        .centered {
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            border: 1px solid #000;
+            background-color: #ccc;
+            padding: 5px;
+            margin: 0;
+        }
+
+        .container div {
+            border: 1px solid #000;
+            padding: 15px;
+            margin: 5px;
+            background-color: white;
+            min-height: 20px;
+        }
+
+        .container legend {
+            background: white;
+            border: 2px solid lightgray;
+            border-radius: 4px;
+            padding: 2px 4px;
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="centered">
+
+        <h4>Horizontal and vertical layout</h4>
+        <demo-snippet>
+            <div class="container hbox" style="height:100px">
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <div class="container vbox" style="height: 250px">
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+
+        <h4>Reversed layouts</h4>
+        <demo-snippet>
+
+            <div class="container hbox reverse">
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+
+        <h4>Flexible children</h4>
+        <demo-snippet>
+            <div class="container hbox">
+                <div>one</div>
+                <div class="halign-stretch">
+                    two (class="self-align-stretch")</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+
+        <h4>Flexible children in vertical layouts</h4>
+        <demo-snippet>
+            <fieldset class="container vbox" style="height: 250px">
+                <legend>class="vbox" style="height:250px"</legend>
+                <div>one</div>
+                <div class="valign-stretch">
+                    two (class="valign-stretch")
+                </div>
+                <div>three</div>
+            </fieldset>
+        </demo-snippet>
+
+        <h4>Flex ratios</h4>
+        <demo-snippet>
+            <div class="container hbox">
+                <div class="halign-stretch-1">
+                    halign-stretch-1</div>
+                <div class="halign-stretch-2">
+                    halign-stretch-2</div>
+                <div class="halign-stretch-3">
+                    halign-stretch-3</div>
+            </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <div class="container vbox" style="height: 250px">
+                <div class="valign-stretch-1">valign-stretch-1</div>
+                <div class="valign-stretch-2">valign-stretch-2</div>
+                <div class="valign-stretch-3">valign-stretch-3</div>
+            </div>
+        </demo-snippet>
+
+        <h4>Cross-axis stretch alignment (default)</h4>
+        <demo-snippet>
+            <div class="container hbox" style="height:100px">
+                <div class="valign-stretch">class="valign-stretch"</div>
+                <div>(default)</div>
+            </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <div class="container vbox" style="height: 150px">
+                <div class="halign-stretch">class="halign-stretch"</div>
+                <div>(default)</div>
+            </div>
+        </demo-snippet>
+
+        <h4>Cross-axis center alignment</h4>
+        <demo-snippet>
+
+            <div class="container hbox" style="height:100px">
+                <div class="valign-center">class="valign-center"</div>
+                <div>(default)</div>
+            </div>
+        </demo-snippet>
+        <hr>
+        <div class="container vbox" style="height:150px">
+            <div class="halign-center">class="halign-center"</div>
+            <div>(default)</div>
+        </div>
+        </demo-snippet>
+
+        <h4>Cross-axis start alignment</h4>
+        <demo-snippet>
+
+            <div class="container hbox" style="height:100px">
+                <div class="valign-start">class="halign-start"</div>
+                <div>(default)</div>
+            </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+
+            <div class="container vbox" style="height:150px">
+                <div class="halign-start">class="halign-start"</div>
+                <div>(default)</div>
+            </div>
+        </demo-snippet>
+
+        <h4>Cross-axis end alignment</h4>
+        <demo-snippet>
+
+            <div class="container hbox" style="height:100px">
+                <div class="valign-end">class="valign-end</div>
+                <div>(default)</div>
+            </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+
+            <div class="container vbox" style="height:150px">
+                <div class="halign-end">class="halign-end</div>
+                <div>(default)</div>
+            </div>
+        </demo-snippet>
+
+        <h4>Justification, start justified</h4>
+        <demo-snippet>
+            <fieldset class="container hbox halign-items-start">
+                <legend>class="hbox halign-items-start"</legend>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </fieldset>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <fieldset class="container vbox valign-items-start" style="height: 200px">
+                <legend>class="vbox valign-items-start"</legend>
+                <div>one</div>
+                <div>two</div>
+            </fieldset>
+        </demo-snippet>
+
+        <h4>Justification, center justified</h4>
+        <demo-snippet></demo-snippet>
+        <fieldset class="container hbox halign-items-center">
+            <legend>class="hbox halign-items-center"</legend>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </fieldset>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <fieldset class="container vbox valign-items-center" style="height: 200px">
+                <legend>class="vbox valign-items-center"</legend>
+                <div>one</div>
+                <div>two</div>
+            </fieldset>
+        </demo-snippet>
+
+
+        <h4>Justification, end justified</h4>
+        <demo-snippet></demo-snippet>
+        <fieldset class="container hbox halign-items-end">
+            <legend>class="hbox halign-items-end"</legend>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </fieldset>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <fieldset class="container vbox valign-items-end" style="height: 200px">
+                <legend>class="vbox valign-items-end"</legend>
+                <div>one</div>
+                <div>two</div>
+            </fieldset>
+        </demo-snippet>
+
+        <h4>Justification, equal space between elements</h4>
+        <demo-snippet>
+
+            <fieldset class="container hbox halign-items-space-between">
+                <legend>class="hbox halign-items-space-between"</legend>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </fieldset>
+        </demo-snippet>
+
+        <h4>Justification, equal space around each element</h4>
+        <demo-snippet>
+
+            <fieldset class="container hbox halign-items-space-around">
+                <legend>class="hbox halign-items-space-around"</legend>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </fieldset>
+        </demo-snippet>
+
+        <h4>Justification, equal space between elements and ends</h4>
+        <demo-snippet>
+
+            <fieldset class="container hbox halign-items-space-evenly">
+                <legend>class="hbox halign-items-space-evenly"</legend>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </fieldset>
+        </demo-snippet>
+
+
+        <h4>Self alignment</h4>
+        <demo-snippet>
+            <fieldset class="container hbox valign-items-center" style="height: 150px">
+                <legend>
+                    class="hbox valign-items-center"
+                </legend>
+                <div class="valign-start">valign-start</div>
+                <div class="valign-center">valign-center</div>
+                <div class="valign-end">valign-end</div>
+                <div class="valign-stretch">valign-strech</div>
+            </fieldset>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <fieldset class="container vbox halign-items-center" style="height: 300px">
+                <legend>
+                    class="vbox halign-items-center"
+                </legend>
+                <div class="halign-start">halign-start</div>
+                <div class="halign-center">halign-center</div>
+                <div class="halign-end">halign-end</div>
+                <div class="halign-stretch">halign-strech</div>
+            </fieldset>
+        </demo-snippet>
+
+        <h4>Wrapping</h4>
+        <demo-snippet>
+            <fieldset class="container hbox wrap" style="width: 200px">
+                <legend>class="hbox wrap"</legend>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+                <div>four</div>
+            </fieldset>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <fieldset class="container hbox reverse wrap" style="width: 200px">
+                <legend>class="hbox reverse wrap"</legend>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+                <div>four</div>
+            </fieldset>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <fieldset class="container hbox wrap-reverse halign-items-space-between"
+                style="width: 200px; height:200px">
+                <legend>class="hbox wrap-reverse halign-items-space-between"</legend>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+                <div>four</div>
+            </fieldset>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <fieldset class="container hbox wrap-reverse
+            halign-items-space-between
+            valign-items-space-between" style="width: 200px; height: 200px">
+                <legend>class="hbox wrap-reverse
+                    halign-items-space-between
+                    valign-items-space-between"</legend>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+                <div>four</div>
+            </fieldset>
+        </demo-snippet>
+
+    </div>
+
+
+</body>
+
+</html>
