@@ -42,15 +42,9 @@
 
         /* Flexbox alignment */
 
-        /* Alignment in main axis. */
         .hbox.halign-items-start,
         .vbox.valign-items-start {
             justify-content: flex-start;
-        }
-
-        .hbox.valign-items-start,
-        .vbox.halign-items-start {
-            align-content: flex-start;
         }
 
         .hbox.halign-items-center,
@@ -63,60 +57,53 @@
             justify-content: flex-end;
         }
 
-        /* Alignment in cross axis. */
+        /* Alignment in cross-axis. */
         .hbox.valign-items-start,
         .vbox.halign-items-start {
             align-items: flex-start;
+        }
+        .hbox.valign-items-start>*,
+        .vbox.halign-items-start>* {
+            align-self: flex-start;
         }
 
         .hbox.valign-items-center,
         .vbox.halign-items-center {
             align-items: center;
         }
+        .hbox.valign-items-center>*,
+        .vbox.halign-items-center>* {
+            align-self: center;
+        }
 
         .hbox.valign-items-end,
         .vbox.halign-items-end {
             align-items: flex-end;
         }
-
-        /* Space distribution */
-
-        .hbox.halign-items-space-around,
-        .vbox.valign-items-space-around {
-            justify-content: space-around;
-        }
-
-        .hbox.valign-items-space-around,
-        .vbox.halign-items-space-around {
-            align-content: space-around;
-        }
-
-        /* obsolete - use .halign-space-between */
-        .hbox.space-between {
-            justify-content: space-between;
-        }
-
-        .hbox.halign-items-space-between,
-        .vbox.valign-items-space-between {
-            justify-content: space-between;
-        }
-
-        .hbox.valign-items-space-between,
-        .vbox.halign-items-space-between {
-            align-content: space-between;
-        }
-
-        .hbox.halign-items-space-evenly,
-        .vbox.valign-items-space-evenly {
-            justify-content: space-evenly;
-        }
-
-        .hbox.valign-items-space-evenly,
-        .vbox.halign-items-space-evenly {
-            align-content: space-evenly;
+        .hbox.valign-items-end>*,
+        .vbox.halign-items-end>* {
+            align-self: flex-end;
         }
 
         /* Self/item alignment. */
+
+        /* These don't work
+        .hbox.halign-items-start>*,
+        .vbox.valign-items-start>* {
+            align-self: auto;
+        }
+
+        .hbox.halign-items-center>*,
+        .vbox.valign-items-center>* {
+            align-self: auto;
+        }
+
+        .hbox.halign-items-end>*,
+        .vbox.valign-items-end>* {
+            align-self: auto;
+        }
+        */
+
         .hbox>.valign-start,
         .vbox>.halign-start {
             align-self: flex-start;
@@ -135,13 +122,7 @@
         /* Strech "alignment" */
         .hbox.valign-items-stretch,
         .vbox.halign-items-stretch {
-            align-items: baseline;
-            /* ??? */
-        }
-
-        /* obsolete - use .halign-stretch */
-        .hbox>.hgrow {
-            flex-grow: 1;
+            align-items: baseline;   /* ??? */
         }
 
         .hbox>.halign-stretch {
@@ -187,6 +168,39 @@
         .vbox>.valign-stretch-3 {
             flex-grow: 3;
         }
+
+        /* Space distribution */
+
+        .hbox.halign-items-space-around,
+        .vbox.valign-items-space-around {
+            justify-content: space-around;
+        }
+
+        .hbox.valign-items-space-around,
+        .vbox.halign-items-space-around {
+            align-content: space-around;
+        }
+
+        .hbox.halign-items-space-between,
+        .vbox.valign-items-space-between {
+            justify-content: space-between;
+        }
+
+        .hbox.valign-items-space-between,
+        .vbox.halign-items-space-between {
+            align-content: space-between;
+        }
+
+        .hbox.halign-items-space-evenly,
+        .vbox.valign-items-space-evenly {
+            justify-content: space-evenly;
+        }
+
+        .hbox.valign-items-space-evenly,
+        .vbox.halign-items-space-evenly {
+            align-content: space-evenly;
+        }
+
     </style>
 
 
@@ -308,14 +322,14 @@
 
         <p>The term "justification" in the flexbox specification refers to shifting, stretching, or spacing items in the same direction as the item orientation.
 
-            We can also shift, stretch, or space items in the "cross-axis" direction, which is the direction perpendicular to the item orientation.  The flexbox specification refers to this as "alignment". </p>
+            We can also shift, stretch, or space items in the "cross-axis" direction, which is the direction perpendicular to the item orientation; the flexbox specification refers to this as "alignment". </p>
             <p>
-            Therefore, when we shift, stretch, or space items in the same direction as the item orientation, we would have to use flexbox style properties that are confusingly named "justify-content", "align-content", or "flex-grow".
-            And when we align items in the cross-axis direction, we would use flexbox style properties that are named "align-items" or "align-self" (with values of e.g. "flex-start").
+            Therefore, when we want to "justify" items, we would have to use flexbox style properties that are confusingly named "justify-content", "align-content", or "flex-grow".
+            And when we want to "align" items in the cross-axis direction, we would use flexbox style properties that are named "align-items" or "align-self" (with values of e.g. "flex-start").
             </p>
 
             <p>
-            Instead of using this flexbox terminology,  every class that determines how we shift, stretch, or space items in a flexbox container starts with either <code>halign-</code> or <code>valign-</code>.  And we determine whether "alignment" or "justification" apply based on whether the item orientation agrees with the alignment direction.
+            Instead of using this flexbox terminology,  every class that determines how we shift, stretch, or space items in a flexbox container starts with either <code>halign-</code> or <code>valign-</code>.  And we determine whether "alignment" or "justification" properties are used internally based on whether the item orientation agrees with the alignment direction.
             </p>
 
             <p>
@@ -327,8 +341,9 @@
 
         <p>
             By default, items are shifted to the "start"-side of the container, which is the left side of an hbox and the top side of a vbox.
-            Then we can add a <code>halign-items-*</code> class to align items in the horizontal direction, while the <code>valign-items-*</code> classes align items in the vertical direction.
+            Then we can add one of the <code>halign-items-*</code> classes to align items in the horizontal direction, while the <code>valign-items-*</code> classes align items in the vertical direction.
         </p>
+
         <div class="centered">
         <h4>Start-justified</h4>
 
@@ -353,7 +368,7 @@
         </demo-snippet>
 
         <h4>Center-justified</h4>
-        <demo-snippet></demo-snippet>
+        <demo-snippet>
         <div class="container hbox halign-items-center" style="height: 100px">
             <label>class="hbox halign-items-center"</label>
             <div>one</div>
@@ -372,7 +387,7 @@
         </demo-snippet>
 
         <h4>End-justified</h4>
-        <demo-snippet></demo-snippet>
+        <demo-snippet>
         <div class="container hbox halign-items-end" style="height: 100px">
             <label>class="hbox halign-items-end"</label>
             <div>one</div>
@@ -389,9 +404,319 @@
                 <div>three</div>
             </div>
         </demo-snippet>
+
+    <h4>Cross-axis start-alignment</h4>
+    <demo-snippet>
+        <div class="container hbox valign-items-start" style="height: 100px">
+            <label>class="hbox valign-items-start"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container vbox halign-items-start" style="height: 150px">
+            <label>class="vbox halign-items-start"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+
+    <h4>Cross-axis center-alignment</h4>
+    <demo-snippet>
+        <div class="container hbox valign-items-center" style="height: 100px">
+            <label>class="hbox valign-items-center"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <div class="container vbox halign-items-center" style="height: 150px">
+                <label>class="vbox halign-items-center"</label>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+
+    <h4>Cross-axis end-alignment</h4>
+    <demo-snippet>
+        <div class="container hbox valign-items-end" style="height: 100px">
+            <label>class="hbox valign-items-end"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <div class="container vbox halign-items-end" style="height: 150px">
+                <label>class="vbox halign-items-end"</label>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+
+    <h4>More alignment combos</h4>
+    <demo-snippet>
+        <div class="container hbox halign-items-center  valign-items-start" style="height: 100px">
+            <label>class="hbox halign-items-center valign-items-start"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container hbox halign-items-center  valign-items-center" style="height: 100px">
+            <label>class="hbox halign-items-center valign-items-center"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container hbox halign-items-center  valign-items-end" style="height: 100px">
+            <label>class="hbox halign-items-center valign-items-end"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+
+    <demo-snippet>
+        <div class="container hbox halign-items-end  valign-items-start" style="height: 100px">
+            <label>class="hbox halign-items-end valign-items-start"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container hbox halign-items-end  valign-items-center" style="height: 100px">
+            <label>class="hbox halign-items-end valign-items-center"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container hbox halign-items-end  valign-items-end" style="height: 100px">
+            <label>class="hbox halign-items-end valign-items-end"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+
+    <demo-snippet>
+        <div class="container vbox valign-items-center halign-items-start" style="height: 150px">
+            <label>class="vbox vbox valign-items-center halign-items-start"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container vbox valign-items-center halign-items-center" style="height: 150px">
+            <label>class="vbox vbox valign-items-center halign-items-center"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container vbox valign-items-center halign-items-end" style="height: 150px">
+            <label>class="vbox vbox valign-items-center halign-items-end"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+
+    <demo-snippet>
+        <div class="container vbox valign-items-end halign-items-start" style="height: 150px">
+            <label>class="vbox vbox valign-items-end halign-items-start"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container vbox valign-items-end halign-items-center" style="height: 150px">
+            <label>class="vbox vbox valign-items-end halign-items-center"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container vbox valign-items-end halign-items-end" style="height: 150px">
+            <label>class="vbox vbox valign-items-end halign-items-end"</label>
+            <div>one</div>
+            <div>two</div>
+            <div>three</div>
+        </div>
+    </demo-snippet>
+
     </div>
 
+    <h3>Stretching</h3>
 
+    <p>
+    You'll notice above that, unless a cross-axis alignment is specified, the default behavior of flex boxes is to stretch the items in the cross-axis dimension.  So by default, hbox items will stretch vertically and vbox items will stretch horizontally.
+</p>
+
+<p>
+    No matter what item-alignment is specified in the container, we can override the alignment for each item with a similarly-named class. For example, if we want to vertically align one item in an hbox, we can add the <code>valign-start</code> class to that item.
+    The next examples show the default stretch behavior, and the per-item alignment classes.
+</p>
+
+    <div class="centered">
+
+        <h4>Cross-axis stretch alignment (default)</h4>
+
+    <demo-snippet>
+        <div class="container hbox" style="height:100px">
+            <label>class="hbox"</label>
+            <div class="valign-stretch">class="valign-stretch"</div>
+            <div>(default)</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container vbox" style="height: 150px">
+            <label>class="vbox"</label>
+            <div class="halign-stretch">class="halign-stretch"</div>
+            <div>(default)</div>
+        </div>
+    </demo-snippet>
+
+    <h4>Per-item alignment</h4>
+    <demo-snippet>
+        <div class="container hbox" style="height: 150px">
+            <label>
+                class="hbox"
+            </label>
+            <div class="valign-start">valign-start</div>
+            <div class="valign-center">valign-center</div>
+            <div class="valign-end">valign-end</div>
+            <div class="valign-stretch">valign-strech</div>
+        </div>
+    </demo-snippet>
+    <hr>
+    <demo-snippet>
+        <div class="container vbox" style="height: 200px">
+            <label>
+                class="vbox"
+            </label>
+            <div class="halign-start">halign-start</div>
+            <div class="halign-center">halign-center</div>
+            <div class="halign-end">halign-end</div>
+            <div class="halign-stretch">halign-strech</div>
+        </div>
+    </demo-snippet>
+</div>
+
+</div>
+
+<h3>Main-axis stretch alignment</h3>
+
+<p>
+    The default behavior of flex boxes is to <b>not</b> stretch the items in the main-axis dimension.  So by default, hbox items will shrink horizontally to the minimum required and vbox items will shrink vertically.
+</p>
+
+<p>
+    If you want to stretch a single item in the main-axis dimension of an hbox, you can add the <code>halign-stretch</code> class to that item.  Or you can stretch all items in an hbox proportionately by adding the <code>halign-items-stretch</code> class to the container.  Similarly, you can
+    stretch the items in a vbox proportionately by adding the <code>valign-stretch</code> class to the container.  Or you can stretch all items in a vbox by adding the <code>valign-items-stretch</code> class to the container
+    The next few examples show these classes in action.
+
+    <div class="centered">
+        <demo-snippet>
+            <div class="container hbox" style="height:100px">
+                <div>one</div>
+                <div class="halign-stretch">
+                    two (class="halign-stretch")</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <div class="container hbox halign-items-stretch" style="height:100px">
+                <label>class="hbox halign-items-stretch"</label>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+
+        <demo-snippet>
+            <div class="container vbox" style="height: 200px">
+                <label>class="vbox"</label>
+                <div>one</div>
+                <div class="valign-stretch">
+                    two (class="valign-stretch")
+                </div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <div class="container vbox valign-items-stretch" style="height: 200px">
+                <label>class="vbox valign-items-stretch" style="height:200px"</label>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+    </div>
+
+    <h3>Stretch ratios</h3>
+
+    Each item can be stretched a different amount by adding the <code>halign-stretch-X</code> or <code>valign-stretch-X</code> classes to the container.  The next few examples show these classes in action.
+
+        <div class="centered">
+        <demo-snippet>
+            <div class="container hbox">
+                <div class="halign-stretch-1">
+                    halign-stretch-1</div>
+                <div class="halign-stretch-2">
+                    halign-stretch-2</div>
+                <div class="halign-stretch-3">
+                    halign-stretch-3</div>
+            </div>
+        </demo-snippet>
+        <hr>
+        <demo-snippet>
+            <div class="container vbox" style="height: 200px">
+                <div class="valign-stretch-1">valign-stretch-1</div>
+                <div class="valign-stretch-2">valign-stretch-2</div>
+                <div class="valign-stretch-3">valign-stretch-3</div>
+            </div>
+        </demo-snippet>
+
+        </div>
+
+        <h3>Spacing</h3>
+
+        Another way to justify or align items is by adding space between items as well as before and after.  This is normally only considered to be a main-axis justification, but when wrapping of items is enabled, it is also possible to "align" the multiple rows or columns
+
+        <div class="centered">
 
         <h4>Justification, equal space between elements</h4>
         <demo-snippet>
@@ -427,170 +752,39 @@
         </demo-snippet>
 
 
-        <h4>Cross-axis stretch alignment (default)</h4>
+    </div>
 
-        <div class="centered">
-        <demo-snippet>
-            <div class="container hbox" style="height:100px">
-                <div class="valign-stretch">class="valign-stretch"</div>
-                <div>(default)</div>
-            </div>
-        </demo-snippet>
-        <hr>
-        <demo-snippet>
-            <div class="container vbox" style="height: 150px">
-                <div class="halign-stretch">class="halign-stretch"</div>
-                <div>(default)</div>
-            </div>
-        </demo-snippet>
-        </div>
+    <h3>Reversing and ordering</h3>
 
-        <h4>Cross-axis start alignment</h4>
-        <demo-snippet>
+    <p>All the items in a container can be reversed  by adding the 'reverse' class to the container.  The order of the items is the reverse of the original order, and the main-axis alignment is also reversed, from start to end or vice versa.</p>
 
-            <div class="container hbox" style="height:100px">
-                <div class="valign-start">class="halign-start"</div>
-                <div>(default)</div>
-            </div>
-        </demo-snippet>
-        <hr>
+    <div class="centered">
         <demo-snippet>
-
-            <div class="container vbox" style="height:150px">
-                <div class="halign-start">class="halign-start"</div>
-                <div>(default)</div>
-            </div>
-        </demo-snippet>
-
-        <h4>Cross-axis center alignment</h4>
-        <demo-snippet>
-
-            <div class="container hbox" style="height:100px">
-                <div class="valign-center">class="valign-center"</div>
-                <div>(default)</div>
-            </div>
-        </demo-snippet>
-        <hr>
-        <div class="container vbox" style="height:150px">
-            <div class="halign-center">class="halign-center"</div>
-            <div>(default)</div>
-        </div>
-        </demo-snippet>
-
-        <h4>Cross-axis end alignment</h4>
-        <demo-snippet>
-
-            <div class="container hbox" style="height:100px">
-                <div class="valign-end">class="valign-end</div>
-                <div>(default)</div>
-            </div>
-        </demo-snippet>
-        <hr>
-        <demo-snippet>
-
-            <div class="container vbox" style="height:150px">
-                <div class="halign-end">class="halign-end</div>
-                <div>(default)</div>
-            </div>
-        </demo-snippet>
-
-
-        <h4>Item alignment</h4>
-        <demo-snippet>
-            <div class="container hbox valign-items-center" style="height: 150px">
-                <label>
-                    class="hbox valign-items-center"
-                </label>
-                <div class="valign-start">valign-start</div>
-                <div class="valign-center">valign-center</div>
-                <div class="valign-end">valign-end</div>
-                <div class="valign-stretch">valign-strech</div>
-            </div>
-        </demo-snippet>
-        <hr>
-        <demo-snippet>
-            <div class="container vbox halign-items-center" style="height: 200px">
-                <label>
-                    class="vbox halign-items-center"
-                </label>
-                <div class="halign-start">halign-start</div>
-                <div class="halign-center">halign-center</div>
-                <div class="halign-end">halign-end</div>
-                <div class="halign-stretch">halign-strech</div>
-            </div>
-        </demo-snippet>
-
-        <h4>Flexible children</h4>
-        <demo-snippet>
-            <div class="container hbox">
-                <div>one</div>
-                <div class="halign-stretch">
-                    two (class="self-align-stretch")</div>
-                <div>three</div>
-            </div>
-        </demo-snippet>
-        <hr>
-        <demo-snippet>
-            <div class="container hbox halign-items-stretch">
-                <label>class="hbox halign-items-stretch"</label>
-                <div>one</div>
-                <div>two</div>
-                <div>three</div>
-            </div>
-        </demo-snippet>
-
-        <h4>Flexible children in vertical layouts</h4>
-        <demo-snippet>
-            <div class="container vbox" style="height: 200px">
-                <label>class="vbox" style="height:200px"</label>
-                <div>one</div>
-                <div class="valign-stretch">
-                    two (class="valign-stretch")
-                </div>
-                <div>three</div>
-            </div>
-        </demo-snippet>
-        <hr>
-        <demo-snippet>
-            <div class="container vbox valign-items-stretch" style="height: 200px">
-                <label>class="vbox valign-items-stretch" style="height:200px"</label>
-                <div>one</div>
-                <div>two</div>
-                <div>three</div>
-            </div>
-        </demo-snippet>
-
-        <h4>Flex ratios</h4>
-        <demo-snippet>
-            <div class="container hbox">
-                <div class="halign-stretch-1">
-                    halign-stretch-1</div>
-                <div class="halign-stretch-2">
-                    halign-stretch-2</div>
-                <div class="halign-stretch-3">
-                    halign-stretch-3</div>
-            </div>
-        </demo-snippet>
-        <hr>
-        <demo-snippet>
-            <div class="container vbox" style="height: 200px">
-                <div class="valign-stretch-1">valign-stretch-1</div>
-                <div class="valign-stretch-2">valign-stretch-2</div>
-                <div class="valign-stretch-3">valign-stretch-3</div>
-            </div>
-        </demo-snippet>
-
-        <h4>Reversed layouts</h4>
-        <demo-snippet>
-
             <div class="container hbox reverse">
+                <label>class="hbox reverse"</label>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+        <hr>
+
+        <demo-snippet>
+            <div class="container vbox reverse" style="height:150px">
+                <label>class="vbox reverse"</label>
                 <div>one</div>
                 <div>two</div>
                 <div>three</div>
             </div>
         </demo-snippet>
 
-        <h4>Wrapping</h4>
+    </div>
+
+    <h3>Wrapping</h3>
+
+    <p>Items can be wrapped by adding the 'wrap' class to the container</p>
+
+    <div class="centered">
         <demo-snippet>
             <div class="container hbox wrap" style="width: 100px">
                 <label>class="hbox wrap"</label>
@@ -601,6 +795,17 @@
             </div>
         </demo-snippet>
         <hr>
+        <demo-snippet>
+            <div class="container vbox wrap" style="height: 75px">
+                <label>class="vbox wrap"</label>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+                <div>four</div>
+            </div>
+        </demo-snippet>
+        <hr>
+
         <demo-snippet>
             <div class="container hbox reverse wrap" style="width: 100px">
                 <label>class="hbox reverse wrap"</label>
