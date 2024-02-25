@@ -201,20 +201,20 @@
             align-content: space-evenly;
         }
 
-        .hbox >.halign-spacer,
-        .hbox >.halign-spacer-1,
-        .vbox >.valign-spacer,
-        .vbox >.valign-spacer-1 {
+        .hbox >.spacer,
+        .hbox >.spacer-1,
+        .vbox >.spacer,
+        .vbox >.spacer-1 {
             flex-grow: 1;
             visibility: hidden;
         }
-        .hbox >.halign-spacer-2,
-        .vbox >.valign-spacer-2 {
+        .hbox >.spacer-2,
+        .vbox >.spacer-2 {
             flex-grow: 2;
             visibility: hidden;
         }
-        .hbox >.halign-spacer-3,
-        .vbox >.valign-spacer-3 {
+        .hbox >.spacer-3,
+        .vbox >.spacer-3 {
             flex-grow: 3;
             visibility: hidden;
         }
@@ -284,14 +284,10 @@
         }
 
         /* Make spacers in containers slightly visible with a mostly transparent background pattern. */
-        .container>.halign-spacer,
-        .container>.valign-spacer,
-        .container>.halign-spacer-1,
-        .container>.halign-spacer-2,
-        .container>.halign-spacer-3,
-        .container>.valign-spacer-1,
-        .container>.valign-spacer-2,
-        .container>.valign-spacer-3 {
+        .container>.spacer,
+        .container>.spacer-1,
+        .container>.spacer-2,
+        .container>.spacer-3 {
             visibility: visible;
             opacity: .4;
             background: repeating-linear-gradient(45deg, #eee, #eee 5px, #fff 5px, #fff 10px);
@@ -847,23 +843,23 @@
 
         <h4>Spacer</h4>
 
-        <p>A spacer class is provided as a convenience to add invisible spacing between items.  You can insert one or more halign-spacer in an hbox, or one or more valign-spacer anywhere in a vbox.  (The cross-axis spacers would only apply when wrapping, but then we could not indicate which spacer would go where.)</p>
+        <p>A set of spacer classes are provided as a convenience to add invisible spacing between items.  You can insert one or more spacers in an hbox or vbox.  (The cross-axis spacers would only apply when wrapping, but then we could not indicate which spacer would go where. So we don't need the halign- or valign- prefix.)</p>
 
-        <p>By adding spacers, you can reproduce the equal space justification classes, but you also have much more flexibility to justify and align in many more ways.  There are actually four spacer classes each for hbox and vbox cases:  <code>halign-spacer</code>,
-            <code>halign-spacer-1</code>,
-            <code>halign-spacer-2</code>, and
-            <code>halign-spacer-3</code>.  The same is true for the valign cases.
+        <p>By adding spacers, you can reproduce the equal space justification classes, but you also have much more flexibility to justify and align in many more ways.  There are actually four spacer classes with different expansion weights, similar to the halign-stretch-* and valign-stretch-* classes:  <code>spacer</code>,
+            <code>spacer-1</code>,
+            <code>spacer-2</code>, and
+            <code>spacer-3</code>.
             </p>
 
-            <p>While spacers are normally invisible, in the following examples, we make the spacers visible.</p>
+            <p>While spacers are normally invisible, in the following examples, we make the spacers visible with a translucent gradient pattern.</p>
 
         <demo-snippet>
             <div class="container hbox">
                 <label>class="hbox"</label>
                 <div>one</div>
-                <div class="halign-spacer"></div>
+                <div class="spacer"></div>
                 <div>two</div>
-                <div class="halign-spacer"></div>
+                <div class="spacer"></div>
                 <div>three</div>
             </div>
         </demo-snippet>
@@ -872,11 +868,11 @@
             <div class="container vbox" style="height: 250px">
                 <label>class="vbox"</label>
                 <div>one</div>
-                <div class="valign-spacer-1"></div>
+                <div class="spacer-1"></div>
                 <div>two</div>
-                <div class="valign-spacer-2"></div>
+                <div class="spacer-2"></div>
                 <div>three</div>
-                <div class="valign-spacer-3"></div>
+                <div class="spacer-3"></div>
             </div>
         </demo-snippet>
 
