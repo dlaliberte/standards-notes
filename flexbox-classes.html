@@ -307,7 +307,7 @@
                 <div>three</div>
             </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container vbox" style="height: 150px">
                 <label>class="vbox"</label>
@@ -357,7 +357,7 @@
                 <div>three</div>
             </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container vbox valign-items-start" style="height: 150px">
                 <label>class="vbox valign-items-start"</label>
@@ -376,7 +376,7 @@
             <div>three</div>
         </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container vbox valign-items-center" style="height: 150px">
                 <label>class="vbox valign-items-center"</label>
@@ -395,7 +395,7 @@
             <div>three</div>
         </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container vbox valign-items-end" style="height: 150px">
                 <label>class="vbox valign-items-end"</label>
@@ -414,7 +414,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container vbox halign-items-start" style="height: 150px">
             <label>class="vbox halign-items-start"</label>
@@ -433,7 +433,7 @@
             <div>three</div>
         </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container vbox halign-items-center" style="height: 150px">
                 <label>class="vbox halign-items-center"</label>
@@ -452,7 +452,7 @@
             <div>three</div>
         </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container vbox halign-items-end" style="height: 150px">
                 <label>class="vbox halign-items-end"</label>
@@ -471,7 +471,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container hbox halign-items-center  valign-items-center" style="height: 100px">
             <label>class="hbox halign-items-center valign-items-center"</label>
@@ -480,7 +480,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container hbox halign-items-center  valign-items-end" style="height: 100px">
             <label>class="hbox halign-items-center valign-items-end"</label>
@@ -489,7 +489,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
 
     <demo-snippet>
         <div class="container hbox halign-items-end  valign-items-start" style="height: 100px">
@@ -499,7 +499,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container hbox halign-items-end  valign-items-center" style="height: 100px">
             <label>class="hbox halign-items-end valign-items-center"</label>
@@ -508,7 +508,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container hbox halign-items-end  valign-items-end" style="height: 100px">
             <label>class="hbox halign-items-end valign-items-end"</label>
@@ -517,7 +517,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
 
     <demo-snippet>
         <div class="container vbox valign-items-center halign-items-start" style="height: 150px">
@@ -527,7 +527,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container vbox valign-items-center halign-items-center" style="height: 150px">
             <label>class="vbox vbox valign-items-center halign-items-center"</label>
@@ -536,7 +536,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container vbox valign-items-center halign-items-end" style="height: 150px">
             <label>class="vbox vbox valign-items-center halign-items-end"</label>
@@ -545,7 +545,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
 
     <demo-snippet>
         <div class="container vbox valign-items-end halign-items-start" style="height: 150px">
@@ -555,7 +555,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container vbox valign-items-end halign-items-center" style="height: 150px">
             <label>class="vbox vbox valign-items-end halign-items-center"</label>
@@ -564,7 +564,7 @@
             <div>three</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container vbox valign-items-end halign-items-end" style="height: 150px">
             <label>class="vbox vbox valign-items-end halign-items-end"</label>
@@ -598,7 +598,7 @@
             <div>(default)</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container vbox" style="height: 150px">
             <label>class="vbox"</label>
@@ -619,7 +619,7 @@
             <div class="valign-stretch">valign-strech</div>
         </div>
     </demo-snippet>
-    <hr>
+
     <demo-snippet>
         <div class="container vbox" style="height: 200px">
             <label>
@@ -639,26 +639,40 @@
 
 <p>
     The default behavior of flex boxes is to <b>not</b> stretch the items in the main-axis dimension.  So by default, hbox items will shrink horizontally to the minimum required and vbox items will shrink vertically.
+    </p>
+<p>
+    If at least one item is specified with a <code>halign-stretch</code> or <code>valign-stretch</code> class, all the other the items in the same axis will shrink to the minimum required size, unless they are also stretched.
 </p>
 
 <p>
-    If you want to stretch a single item in the main-axis dimension of an hbox, you can add the <code>halign-stretch</code> class to that item.  Or you can stretch all items in an hbox proportionately by adding the <code>halign-items-stretch</code> class to the container.  Similarly, you can
-    stretch the items in a vbox proportionately by adding the <code>valign-stretch</code> class to the container.  Or you can stretch all items in a vbox by adding the <code>valign-items-stretch</code> class to the container
+    If you want to stretch all items in an hbox proportionately, you can do so simply by adding the <code>halign-items-stretch</code> class to the container.  Or if you want to stretch a single item in the main-axis dimension of an hbox, you can add the <code>halign-stretch</code> class to that item.    Similarly, if you want to stretch all items in a vbox proportionately, you can do so simply by adding the <code>valign-items-stretch</code> class to the container.  Or if you want to stretch a single item in the main-axis dimension of a vbox, you can add the <code>valign-stretch</code> class to that item.
+
     The next few examples show these classes in action.
+    </p>
 
     <div class="centered">
         <demo-snippet>
+            <div class="container hbox halign-items-stretch" style="height:100px">
+                <label>class="hbox halign-items-stretch"</label>
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+            </div>
+        </demo-snippet>
+
+        <demo-snippet>
             <div class="container hbox" style="height:100px">
+                <label>class="hbox"</label>
                 <div>one</div>
                 <div class="halign-stretch">
                     two (class="halign-stretch")</div>
                 <div>three</div>
             </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
-            <div class="container hbox halign-items-stretch" style="height:100px">
-                <label>class="hbox halign-items-stretch"</label>
+            <div class="container vbox valign-items-stretch" style="height: 200px">
+                <label>class="vbox valign-items-stretch" style="height:200px"</label>
                 <div>one</div>
                 <div>two</div>
                 <div>three</div>
@@ -675,24 +689,17 @@
                 <div>three</div>
             </div>
         </demo-snippet>
-        <hr>
-        <demo-snippet>
-            <div class="container vbox valign-items-stretch" style="height: 200px">
-                <label>class="vbox valign-items-stretch" style="height:200px"</label>
-                <div>one</div>
-                <div>two</div>
-                <div>three</div>
-            </div>
-        </demo-snippet>
+
     </div>
 
     <h3>Stretch ratios</h3>
 
-    Each item can be stretched a different amount by adding the <code>halign-stretch-X</code> or <code>valign-stretch-X</code> classes to the container.  The next few examples show these classes in action.
+    Each item can be stretched a different amount by adding the <code>halign-stretch-X</code> or <code>valign-stretch-X</code> classes to each item.  There are only three stretch ratios: 1, 2, and 3, and the default is 1.  This amount of stretching is proportional to this ratio, and to the content.  The next few examples show these classes in action.
 
         <div class="centered">
         <demo-snippet>
             <div class="container hbox">
+                <label>class="hbox"</label>
                 <div class="halign-stretch-1">
                     halign-stretch-1</div>
                 <div class="halign-stretch-2">
@@ -701,9 +708,10 @@
                     halign-stretch-3</div>
             </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container vbox" style="height: 200px">
+                <label>class="vbox"</label>
                 <div class="valign-stretch-1">valign-stretch-1</div>
                 <div class="valign-stretch-2">valign-stretch-2</div>
                 <div class="valign-stretch-3">valign-stretch-3</div>
@@ -767,7 +775,7 @@
                 <div>three</div>
             </div>
         </demo-snippet>
-        <hr>
+
 
         <demo-snippet>
             <div class="container vbox reverse" style="height:150px">
@@ -794,7 +802,7 @@
                 <div>four</div>
             </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container vbox wrap" style="height: 75px">
                 <label>class="vbox wrap"</label>
@@ -804,7 +812,7 @@
                 <div>four</div>
             </div>
         </demo-snippet>
-        <hr>
+
 
         <demo-snippet>
             <div class="container hbox reverse wrap" style="width: 100px">
@@ -815,7 +823,7 @@
                 <div>four</div>
             </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container hbox wrap halign-items-space-between"
                 style="width: 100px; height:100px">
@@ -826,7 +834,7 @@
                 <div>four</div>
             </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container hbox wrap-reverse halign-items-space-between"
                 style="width: 100px; height:100px">
@@ -837,7 +845,7 @@
                 <div>four</div>
             </div>
         </demo-snippet>
-        <hr>
+
         <demo-snippet>
             <div class="container hbox wrap-reverse
             halign-items-space-between
@@ -854,6 +862,27 @@
 
     </div>
 
+    <h3>Nesting hbox and vbox</h3>
+
+    <p>Containers can be nested inside other containers. </p>
+
+    <div class="centered">
+        <demo-snippet>
+            <div class="container hbox halign-items-space-around">
+                <label>class="hbox halign-items-space-around"</label>
+                <div class="container vbox">
+                    <label>class="vbox"</label>
+                    <div>one</div>
+                    <div>two</div>
+                </div>
+                <div class="container vbox">
+                    <label>class="vbox"</label>
+                    <div>three</div>
+                    <div>four</div>
+                </div>
+            </div>
+        </demo-snippet>
+    </div>
 
 </body>
 
